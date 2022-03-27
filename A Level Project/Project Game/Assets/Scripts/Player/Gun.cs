@@ -23,5 +23,6 @@ public class Gun : MonoBehaviour
             bullet.transform.position = Camera.transform.position + Camera.transform.forward;
             bullet.transform.forward = Camera.transform.forward;
         }
+        
     }
 }
