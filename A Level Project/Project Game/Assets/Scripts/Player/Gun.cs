@@ -20,8 +20,8 @@ public class Gun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             GameObject bullet = Instantiate(Bullet);
-            Bullet.transform.position = Camera.transform.position + Camera.transform.forward;
-            Bullet.transform.forward = Camera.transform.forward;
+            bullet.transform.position = Camera.transform.position + Camera.transform.forward;
+            bullet.transform.forward = Camera.transform.forward;
         }
     }
 }
