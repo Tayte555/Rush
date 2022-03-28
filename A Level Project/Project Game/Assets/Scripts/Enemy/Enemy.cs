@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     private Player playerRef;
     public GameObject player;
     private IEnumerator attack;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +52,7 @@ public class Enemy : MonoBehaviour
         {
             playerRef = other.gameObject.GetComponent<Player>();
             playerRef.TakeDamage(enemyDamage);
-
+            
             attack = ConstantAttack();
             StartCoroutine(attack);
         }
@@ -75,5 +74,4 @@ public class Enemy : MonoBehaviour
             StopCoroutine(attack);
         }
     }
-
 }
