@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float enemyDamage;
     [SerializeField] private float enemyMaxHealth;
     private float enemyHealth;
-    private bool enemyAlive = true;
 
+    private Player playerRef;
     public GameObject player;
+    private IEnumerator attack;
     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,15 +35,44 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bullet" && enemyAlive)
+        if (collision.gameObject.tag == "Bullet")
         {
             Destroy(collision.gameObject);
             enemyHealth -= 50;
             if (enemyHealth <= 0)
             {
-                enemyAlive = false;
                 Destroy(gameObject);
+                Die();
             }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            playerRef = other.gameObject.GetComponent<Player>();
+            playerRef.TakeDamage(enemyDamage);
+
+            attack = ConstantAttack();
+            StartCoroutine(attack);
+        }
+    }
+
+    private IEnumerator ConstantAttack()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+            playerRef.TakeDamage(enemyDamage);
+        }
+    }
+
+    void Die()
+    {
+        if (attack != null)
+        {
+            StopCoroutine(attack);
         }
     }
 
