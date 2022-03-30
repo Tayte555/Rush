@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Medium
-  enemySpeed: 2
+  enemySpeed: 4
   enemyDamage: 25
   enemyMaxHealth: 100
   enemyScore: 3
@@ -1731,7 +1731,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1872,7 +1872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Large
-  enemySpeed: 1
+  enemySpeed: 3
   enemyDamage: 100
   enemyMaxHealth: 150
   enemyScore: 5
@@ -2104,7 +2104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Small
-  enemySpeed: 3
+  enemySpeed: 5
   enemyDamage: 10
   enemyMaxHealth: 50
   enemyScore: 1

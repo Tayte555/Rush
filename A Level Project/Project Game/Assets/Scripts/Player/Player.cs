@@ -31,6 +31,4 @@ public class Player : MonoBehaviour
             Debug.Log("Game Over!");
         }
     }
-
-
 }
