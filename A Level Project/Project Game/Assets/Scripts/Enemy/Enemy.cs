@@ -8,11 +8,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float enemySpeed;
     [SerializeField] private float enemyDamage;
     [SerializeField] private float enemyMaxHealth;
+    [SerializeField] private int enemyScore;
     private float enemyHealth;
 
     private Player playerRef;
     public GameObject player;
     private IEnumerator attack;
+
+    public PlayerScore score;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,7 @@ public class Enemy : MonoBehaviour
             if (enemyHealth <= 0)
             {
                 Destroy(gameObject);
+                score.playerScore += enemyScore;
                 Die();
             }
         }
