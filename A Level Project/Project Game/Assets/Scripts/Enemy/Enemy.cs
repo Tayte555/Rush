@@ -26,14 +26,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyMove();
+        //enemyMove();
     }
 
-    private void enemyMove()
+    /*private void enemyMove()
     {
         transform.LookAt(player.transform);
         transform.position += transform.forward * enemySpeed * Time.deltaTime;
-    }
+    }*/
 
     void OnCollisionEnter(Collision collision)
     {
