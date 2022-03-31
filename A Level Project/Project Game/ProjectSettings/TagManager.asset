@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - Large_Enemy
+  - Medium_Enemy
+  - Small_Enemy
+  - Score
   layers:
   - Default
   - TransparentFX

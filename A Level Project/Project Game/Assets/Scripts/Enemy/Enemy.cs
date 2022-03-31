@@ -12,14 +12,14 @@ public class Enemy : MonoBehaviour
     private float enemyHealth;
 
     private Player playerRef;
-    public GameObject player;
     private IEnumerator attack;
 
-    public PlayerScore score;
+    private PlayerScore score;
 
     // Start is called before the first frame update
     void Start()
     {
+        score = FindObjectOfType<PlayerScore>();
         enemyHealth = enemyMaxHealth;
     }
 
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     private void enemyMove()
     {
-        transform.LookAt(player.transform);
+        transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
         transform.position += transform.forward * enemySpeed * Time.deltaTime;
     }
 

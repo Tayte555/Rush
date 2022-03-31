@@ -8,12 +8,12 @@ public class PlayerScore : MonoBehaviour
     public int playerScore = 0;
     Text score;
 
-    private void Start()
+    void Start()
     {
         score = GetComponent<Text>();
     }
 
-    private void Update()
+    void Update()
     {
         score.text = "Score: " + playerScore;
     }
