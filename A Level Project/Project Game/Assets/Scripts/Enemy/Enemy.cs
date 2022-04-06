@@ -15,11 +15,14 @@ public class Enemy : MonoBehaviour
     private IEnumerator attack;
 
     private PlayerScore score;
+    private EnemySpawn spawnScript;
 
     // Start is called before the first frame update
     void Start()
     {
         score = FindObjectOfType<PlayerScore>();
+        spawnScript = FindObjectOfType<EnemySpawn>();
+        
         enemyHealth = enemyMaxHealth;
     }
 
@@ -73,6 +76,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        spawnScript.enemiesKilled++;
         if (attack != null)
         {
             StopCoroutine(attack);
