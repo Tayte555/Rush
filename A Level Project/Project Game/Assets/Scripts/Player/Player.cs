@@ -8,11 +8,20 @@ public class Player : MonoBehaviour
     public float playerHealth;
     public PlayerUI healthBar;
 
+    public GameObject playerUI;
+    public GameObject endScreen;
+
+    public Gun gunScript;
+    public PlayerLook lookScript;
+
     // Start is called before the first frame update
     void Start()
     {
         playerHealth = playerMaxHealth;
         healthBar.setPlayerMaxHealth(playerMaxHealth);
+
+        gunScript = FindObjectOfType<Gun>();
+        lookScript = FindObjectOfType<PlayerLook>();
     }
 
     // Update is called once per frame
@@ -28,7 +37,13 @@ public class Player : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            Debug.Log("Game Over!");
+            gunScript.canShoot = false;
+            lookScript.canLook = false;
+            
+            playerUI.SetActive(false);
+            endScreen.SetActive(true);
+            
+            Cursor.visible = true;
         }
     }
 }

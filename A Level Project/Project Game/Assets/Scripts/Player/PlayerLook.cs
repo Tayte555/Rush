@@ -7,28 +7,35 @@ public class PlayerLook : MonoBehaviour
     public float sens = 2f;
     public Transform leftAndRight;
     float upAndDown = 0f;
+
+    public bool canLook;
    
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
+
+        canLook = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sens;
-        float mouseY = Input.GetAxis("Mouse Y") * sens;
+        if (canLook == true)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * sens;
+            float mouseY = Input.GetAxis("Mouse Y") * sens;
 
-        //rotating player body left and right
-        leftAndRight.Rotate(Vector3.up * mouseX);
+            //rotating player body left and right
+            leftAndRight.Rotate(Vector3.up * mouseX);
 
-        //clamping player camera rotation
-        upAndDown = Mathf.Clamp(upAndDown, -90, 90);
+            //clamping player camera rotation
+            upAndDown = Mathf.Clamp(upAndDown, -90, 90);
 
-        //rotating player camera up and down
-        upAndDown -= mouseY;
-        transform.localRotation = Quaternion.Euler(upAndDown, 0f, 0f);
+            //rotating player camera up and down
+            upAndDown -= mouseY;
+            transform.localRotation = Quaternion.Euler(upAndDown, 0f, 0f);
+        }
     }
 }

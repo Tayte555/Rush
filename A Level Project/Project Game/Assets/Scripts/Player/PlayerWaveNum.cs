@@ -17,6 +17,6 @@ public class PlayerWaveNum : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        wave.text = "Wave Number: " + waveNumber;
+        wave.text = "Wave Number: " + waveNumber;   
     }
 }
