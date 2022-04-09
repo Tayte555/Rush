@@ -6,15 +6,17 @@ using UnityEngine.UI;
 public class PlayerScore : MonoBehaviour
 {
     public int playerScore = 0;
-    Text score;
+    public Text score;
+    public Text finalScore;
 
     void Start()
     {
-        score = GetComponent<Text>();
+
     }
 
     void Update()
     {
         score.text = "Score: " + playerScore;
+        finalScore.text = "Final Score: " + playerScore;
     }
 }

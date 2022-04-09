@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     public Gun gunScript;
     public PlayerLook lookScript;
+    public PlayerScore scoreScript;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TakeDamage(float damageTaken)

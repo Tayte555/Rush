@@ -6,17 +6,19 @@ using UnityEngine.UI;
 public class PlayerWaveNum : MonoBehaviour
 {
     public int waveNumber = 0;
-    Text wave;
+    public Text wave;
+    public Text finalWave;
 
     // Start is called before the first frame update
     void Start()
     {
-        wave = GetComponent<Text>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        wave.text = "Wave Number: " + waveNumber;   
+        wave.text = "Wave Number: " + waveNumber;
+        finalWave.text = "Final Wave Number: " + waveNumber;
     }
 }
