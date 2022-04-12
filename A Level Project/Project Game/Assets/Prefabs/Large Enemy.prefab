@@ -112,11 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Large
   enemySpeed: 3
-  enemyDamage: 100
-  enemyMaxHealth: 150
+  enemyDamage: 45
+  enemyMaxHealth: 500
   enemyScore: 5
-  player: {fileID: 0}
-  score: {fileID: 0}
 --- !u!54 &547261520875041233
 Rigidbody:
   m_ObjectHideFlags: 0

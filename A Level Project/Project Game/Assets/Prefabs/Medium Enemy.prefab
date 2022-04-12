@@ -113,10 +113,8 @@ MonoBehaviour:
   enemyName: Medium
   enemySpeed: 4
   enemyDamage: 25
-  enemyMaxHealth: 100
+  enemyMaxHealth: 250
   enemyScore: 3
-  player: {fileID: 0}
-  score: {fileID: 0}
 --- !u!54 &6847511582263127196
 Rigidbody:
   m_ObjectHideFlags: 0

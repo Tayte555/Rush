@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float playerHealth;
     public PlayerUI healthBar;
 
+    public GameObject hurtImage;
     public GameObject playerUI;
     public GameObject endScreen;
 
@@ -36,15 +37,27 @@ public class Player : MonoBehaviour
         playerHealth -= damageTaken;
         healthBar.setPlayerHealth(playerHealth);
 
+        if (playerHealth <= 30)
+        {
+            hurtImage.SetActive(true);
+        }
+
         if (playerHealth <= 0)
+        {
+            playerUI.SetActive(false);
+            endScreen.SetActive(true);
+
+            stopPlay();
+            Cursor.visible = true;
+        }
+    }
+
+    public void stopPlay()
+    {
+        if(endScreen == isActiveAndEnabled)
         {
             gunScript.canShoot = false;
             lookScript.canLook = false;
-            
-            playerUI.SetActive(false);
-            endScreen.SetActive(true);
-            
-            Cursor.visible = true;
         }
     }
 }

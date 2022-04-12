@@ -113,10 +113,8 @@ MonoBehaviour:
   enemyName: Small
   enemySpeed: 5
   enemyDamage: 10
-  enemyMaxHealth: 50
+  enemyMaxHealth: 150
   enemyScore: 1
-  player: {fileID: 0}
-  score: {fileID: 0}
 --- !u!54 &5325171932102505646
 Rigidbody:
   m_ObjectHideFlags: 0
