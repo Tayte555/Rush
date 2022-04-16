@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Enemy : MonoBehaviour
     private Player playerRef;
     private IEnumerator attack;
 
+    NavMeshAgent navMeshAgent;
+    GameObject playerTarget;
+
     private PlayerScore score;
     private EnemySpawn spawnScript;
 
@@ -22,6 +26,9 @@ public class Enemy : MonoBehaviour
     {
         score = FindObjectOfType<PlayerScore>();
         spawnScript = FindObjectOfType<EnemySpawn>();
+        
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        playerTarget = GameObject.FindGameObjectWithTag("Player");
         
         enemyHealth = enemyMaxHealth;
     }
@@ -34,15 +41,14 @@ public class Enemy : MonoBehaviour
 
     private void enemyMove()
     {
-        transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
-        transform.position += transform.forward * enemySpeed * Time.deltaTime;
+        navMeshAgent.SetDestination(playerTarget.transform.position);
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             enemyHealth -= 50;
             if (enemyHealth <= 0)
             {
